@@ -14,7 +14,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body style="height: 100%;">
+    <%= content_for?(:content) ? yield(:content) : yield %>
   </body>
 </html>
