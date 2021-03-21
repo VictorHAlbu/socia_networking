@@ -1,4 +1,4 @@
-
+<%= link_to("Novo Administrador", new_admin_admin_path, class: "btn btn-success mb-4") %>
 <h4>Admins</h4><br>
 
 <table class="table table-dark">
@@ -8,6 +8,7 @@
       <th scope="col">Nome</th>
       <th scope="col">Email</th>
       <th scope="col">Criado em:</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +19,7 @@
         <td><%= admin.name %></td>
         <td><%= admin.email %></td>
         <td><%= admin.created_at %></td>
+        <td><%= link_to 'Editar', edit_admin_admin_path(admin), class: "btn btn-warning btn-sm" %></td>
         </tr>
    <% end %> 
   </tbody>
