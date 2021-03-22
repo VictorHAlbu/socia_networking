@@ -9,6 +9,7 @@
       <th scope="col">Email</th>
       <th scope="col">Criado em:</th>
       <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +21,7 @@
         <td><%= admin.email %></td>
         <td><%= admin.created_at %></td>
         <td><%= link_to 'Editar', edit_admin_admin_path(admin), class: "btn btn-warning btn-sm" %></td>
+        <td><%= link_to 'Deletar', admin_admin_path(admin), method: :delete, data:{confirm: "Tem certeza que deseja excluir esse Admin?."}, class: "btn btn-danger btn-sm" %></td>
         </tr>
    <% end %> 
   </tbody>
