@@ -2,10 +2,10 @@ class AdminController < ApplicationController
     before_action :authenticate_admin
 
     def authenticate_admin
-        redirect_to new_admin_session_path unless current_admin?
+        redirect_to new_admin_session_path unless current_admin? 
     end
 
-
+    #retorna true se tiver user logado
     def current_admin?
         if current_admin.present?
             true

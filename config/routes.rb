@@ -7,4 +7,10 @@ Rails.application.routes.draw do
     resources :admins
   end
 
+  root to: "user/timeline#index"
+
+  namespace :user do
+   
+  end
+
 end
