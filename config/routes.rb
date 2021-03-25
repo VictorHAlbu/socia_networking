@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   devise_for :admins, skip: [:registrarions], controllers: {sessions: "admins/sessions"}
  
   namespace :admin do

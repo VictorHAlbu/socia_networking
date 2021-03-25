@@ -1,5 +1,6 @@
 class Admin::AdminsController < AdminController
-    
+    before_action :set_admin, only: [:edit, :update, :destroy]
+
     def index
         @admins = Admin.order(id: :desc)
     end
@@ -9,11 +10,9 @@ class Admin::AdminsController < AdminController
     end
 
     def edit
-        @admin = Admin.find(params[:id])
     end
 
     def update
-        @admin = Admin.find(params[:id])
         params = form_params.to_h #pega todos parametros do form com id e transforma em Hash
         params = params.except!(:password, :password_confirmarion) if params[:password].blank?
         #abre exeão se password vinher em branco
@@ -26,12 +25,9 @@ class Admin::AdminsController < AdminController
     end
     
     def destroy
-        @admin = Admin.find(params[:id])
         @admin.destroy 
         redirect_to admin_admins_path
     end
-
-
 
     def create
         @admin = Admin.new(form_params) 
@@ -43,8 +39,11 @@ class Admin::AdminsController < AdminController
 
     end
 
-
     private
+    def set_admin
+        @admin = Admin.find(params[:id])
+    end
+
     def form_params
         params.require(:admin).permit(:name, :email, :password, :password_confirmation)
     end
