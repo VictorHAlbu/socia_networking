@@ -21,5 +21,14 @@
         <% end %>
       </div>
     </div>
+
+    <% current_user.posts.each do |post| %>
+      <div class="card text-white bg-dark mb-3 mt-3">
+        <div class="card-header"><%= post.user.name %></div>
+        <div class="card-body">
+          <p class="card-text"><%= post.body %></p>
+        </div>
+      </div>
+    <% end %>  
   </div>
 </div>
