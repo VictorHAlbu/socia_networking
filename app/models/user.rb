@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :phone, :name, :avatar, presence: true
-  has_one_attached :avatar     
+  has_one_attached :avatar
   has_many :posts
 end
