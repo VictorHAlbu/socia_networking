@@ -15,4 +15,6 @@ class User < ApplicationRecord
   has_many :following, through: :following_subscriptions, source: :followed
 
   scope :potential_to_follow, -> (user) { where.not(id: user.following.pluck(:id)).where.not(id: user.id) }
+  #QUERY TRÁS POTENCIAS SEGUIDORES QUE O USER PODE SEGUIR - QUERY WHERE NOT NÃO TRÁS USER JÁ SEGUIDOS - NEM O PRÓPIO USUÁRIO
+  #pontential_to_follow poderá ser referenciado em qualquer lugar da aplicação como chamada de método da Classe
 end
