@@ -15,7 +15,7 @@ class Admin::AdminsController < AdminController
     def update
         params = form_params.to_h #pega todos parametros do form com id e transforma em Hash
         params = params.except!(:password, :password_confirmarion) if params[:password].blank?
-        #abre exeão se password vinher em branco
+        #abre exeção se password vinher em branco
 
         if @admin.update(params)
             redirect_to admin_admins_path
