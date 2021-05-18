@@ -14,10 +14,10 @@ Rails.application.routes.draw do
   namespace :user do
    get 'profile', to: "profile#show"
    get 'potential_to_follow', to: "profile#potential_to_follow"
-   resources :posts, only: [:create] 
    get 'following', to: "profile#following"
    get 'followers', to: "profile#followers"
-
+   resources :posts, only: [:create, :destroy]  
+   resources :users, only: :show 
 
    post "follow/:id", to: "subscription#follow", as: :follow
    post 'unfollow/:id', to: "subscription#unfollow", as: :unfollow

@@ -20,17 +20,13 @@
             <%= f.text_area :body, rows: 5, class: "form-control", placeholder: "Digite seu texto..." %>
           </div>
             <button type="submit" class="btn btn-primary">Postar</button>
+           
         <% end %>
       </div>
     </div>
 
     <% current_user.posts.each do |post| %>
-      <div class="card text-white bg-dark mb-3 mt-3">
-        <div class="card-header"><%= post.user.name %></div>
-        <div class="card-body">
-          <p class="card-text"><%= post.body %></p>
-        </div>
-      </div>
+     <%= render "user/post_card", post: post %>
     <% end %>  
   </div>
 </div>
