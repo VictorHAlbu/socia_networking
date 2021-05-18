@@ -10,4 +10,14 @@ class User::SubscriptionController < UserController
     #metodo seguir
   end
 
+  def unfollow
+    user = User.find_by(id: params[:id])
+
+    subscription = Subscription.find_by(followed_by: current_user, followed: user)
+    #busca a assinatura de quem está seguindo(usuario atual(followed_by)) e pelo o usuario que está seguindo
+  
+    subscription.destroy
+    redirect_to user_following_path
+  end
+
 end

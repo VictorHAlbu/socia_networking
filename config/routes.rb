@@ -15,8 +15,11 @@ Rails.application.routes.draw do
    get 'profile', to: "profile#show"
    get 'potential_to_follow', to: "profile#potential_to_follow"
    resources :posts, only: [:create] 
+   get 'following', to: "profile#following"
+
 
    post "follow/:id", to: "subscription#follow", as: :follow
+   post 'unfollow/:id', to: "subscription#unfollow", as: :unfollow
   end
 
 end
