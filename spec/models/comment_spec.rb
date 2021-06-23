@@ -12,6 +12,7 @@ RSpec.describe Comment, type: :model do
 
     expect(post.comments.count).to eql 1
     expect(post.comments.first.user).to eql alex
+    expect(post.comments.first.body).to eql "Belo Post "
 
   end
 end
