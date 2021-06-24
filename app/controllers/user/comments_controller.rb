@@ -13,7 +13,15 @@ class User::CommentsController < UserController
     end
   
     def destroy
-    
+      @comment = Comment.find_by(id: params[:id])
+      @post = @comment.post
+
+      if @comment.destroy
+        respond_to do |format|
+          format.js {render "destroy"}
+        end
+      end
+
     end
   
     private

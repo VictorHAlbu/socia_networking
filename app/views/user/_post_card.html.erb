@@ -17,23 +17,32 @@
         <i style="font-size:18px;color:<%= post.liked_by_user?(current_user) ? "#80c0ff" : "#ffffff" %> " class="fa fa-thumbs-up"></i>
      <% end %>
       <span class="ml-2"><%= post.likes.count %></span>
+
+     
+      <%= link_to nil, {class:"comments-toggle ml-4", remote: true} do %>
+        <i style="font-size:18px;color:#ffffff" class="fa fa-comment"></i>
+     <% end %>
+
+      <span class="ml-2" id="post<%= post.id %>-comments-count"><%= post.comments.count %></span>
+
     </div>
 </div>
-
-  <%= form_with(model: [:user, @comment]) do |f| %>
-  <%= f.hidden_field(:post_id, value: post.id) %>
-    <div class="form-group">
-      <%= f.text_area :body, rows: 2, class: "form-control", placeholder: "Escreva seu comentário...", required: true %>
-    </div>
-    <div class="d-flex">
-      <button type="submit" class="btn btn-sm btn-primary ml-auto">Enviar</button>
-    </div>
-  <% end %>
-    <h4>Comentarios</h4>
-  <div id="post<%= post.id %>-comments">
-    <% post.comments.order(created_at: :desc).each do |comment| %>
-      <%= render("comment_card", comment: comment) %>
+<div class="comments-list" style="display: none;">
+  <h4>Comentários</h4>
+    <%= form_with(model: [:user, @comment]) do |f| %>
+    <%= f.hidden_field(:post_id, value: post.id) %>
+      <div class="form-group">
+        <%= f.text_area :body, rows: 2, class: "form-control", placeholder: "Escreva seu comentário...", required: true %>
+      </div>
+      <div class="d-flex">
+        <button type="submit" class="btn btn-sm btn-primary ml-auto">Enviar</button>
+      </div>
     <% end %>
-  </div>
 
+    <div id="post<%= post.id %>-comments">
+      <% post.comments.order(created_at: :desc).each do |comment| %>
+        <%= render("comment_card", comment: comment) %>
+      <% end %>
+    </div>
+</div>
 <hr class="bg-secondary">

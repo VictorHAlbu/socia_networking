@@ -4,7 +4,7 @@
        Comentário de  <%= link_to comment.user.name, comment.user == current_user ? user_profile_path : user_user_path(comment.user) %>
         
         <% if comment.user == current_user %>
-          <%= link_to '#', class: "close text-white", remote: true do %>
+          <%= link_to user_comment_path(comment), method: :delete, class: "close text-white", remote: true do %>
             <span aria-hidden="true">&times;</span>
           <% end %>
         <% end %>

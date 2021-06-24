@@ -17,7 +17,7 @@
           <%= render("layouts/form_errors", record: @post) %>
           <div class="form-group">
             <label for="exampleInputEmail1">Texto</label>
-            <%= f.text_area :body, rows: 5, class: "form-control", placeholder: "Digite seu texto..." %>
+            <%= f.text_area :body, rows: 5, class: "form-control", placeholder: "Digite seu texto...", required: true %>
           </div>
             <button type="submit" class="btn btn-primary">Postar</button>
            
