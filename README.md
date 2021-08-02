@@ -1,5 +1,5 @@
 # Rede Social
-O sistema é rede social tradicional onde o usuário pode fazer posts, colocar foto no perfil, seguir, deixar de seguir, comentários em Posts de outros usuários. Em sua area administrativa você pode acompanhar detalhes de todos usuários cadastrados, seus posts e também pode adicionar novos Administradores.
+A aplicação é uma rede social tradicional onde o usuário pode fazer posts, colocar foto no perfil, seguir, deixar de seguir, comentários em Posts de outros usuários. Em sua area administrativa você pode acompanhar detalhes de todos usuários cadastrados, seus posts e também pode adicionar novos Administradores.
 
 # Tecnologias
 
