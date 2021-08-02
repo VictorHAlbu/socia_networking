@@ -29,8 +29,8 @@ Em seguida crie sua base de dados com comandos:
 rails db:create
 rails db:migrate
 ```
-Test:
-para rodar os testes de acordo com model desejádo rode o comando
+Test:<br>
+para rodar os testes de acordo com model desejádo rode o comando<br>
 ex:
 ```
 rspec spec/model/user_spec.rb
